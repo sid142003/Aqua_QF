@@ -20,6 +20,7 @@ import {
 import { useEffect, useState } from 'react';
 import bottleImage from './image.png';
 import logoImage from './logo.png';
+import backgroundImage from './banner.jpg';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -39,6 +40,13 @@ function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = '+917972711814'; // Using the phone number from the footer
+    const message = 'Hello! I\'m interested in your custom branded water bottle labels. Can you provide more information?';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -84,12 +92,12 @@ function App() {
                 <img 
                   src={logoImage} 
                   alt="AquaBrand Logo" 
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain "
                   style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
                 />
               </motion.div>
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                AquaBrand
+              SipNSee
               </span>
             </motion.div>
             <div className="hidden md:flex space-x-8">
@@ -120,7 +128,7 @@ function App() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
+            backgroundImage: `url(${backgroundImage})`
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/85 via-indigo-900/80 to-purple-900/85"></div>
@@ -380,7 +388,7 @@ function App() {
                 icon: <Visibility className="text-4xl" />,
                 title: "Brand Visibility",
                 description: "Your brand in everyone's hands at events, meetings, and parties.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                image: "https://i.ibb.co/PLqK3yL/Chat-GPT-Image-Aug-12-2025-12-56-47-AM.png",
                 color: "from-blue-500 to-cyan-500"
               },
               {
@@ -401,7 +409,7 @@ function App() {
                 icon: <AttachMoney className="text-4xl" />,
                 title: "Cost-Effective",
                 description: "Low investment for high brand exposure.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                image: "https://i.ibb.co/0ybmRFcw/hand-putting-mix-coins-seed-clear-bottle-copyspace-business-investment-growth-concept.jpg",
                 color: "from-green-500 to-emerald-500"
               }
             ].map((benefit, index) => (
@@ -471,7 +479,7 @@ function App() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 relative">
             {[
               {
                 step: "1",
@@ -535,9 +543,9 @@ function App() {
                 </div>
                 
                 {index < 2 && (
-                  <div className="hidden md:block absolute top-10 left-full w-full h-1 bg-gradient-to-r from-blue-200 to-indigo-200 transform translate-x-4 rounded-full">
+                  <div className="hidden md:block absolute top-10 left-[60%] w-[40%] h-4 bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full z-0 shadow-lg">
                     <motion.div 
-                      className={`w-full h-full bg-gradient-to-r ${step.color} rounded-full`}
+                      className={`w-full h-full bg-gradient-to-r ${step.color} rounded-full shadow-lg`}
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       transition={{ duration: 1.5, delay: 0.5 }}
@@ -620,21 +628,22 @@ function App() {
               viewport={{ once: true }}
             >
               <motion.button
+                onClick={handleWhatsAppRedirect}
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-600 px-10 py-5 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/25 flex items-center gap-3"
+                className="bg-white text-blue-600 px-10 py-5 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/25 flex items-center gap-3 cursor-pointer"
               >
                 <span>Contact Us</span>
                 <ArrowForward className="animate-pulse" />
               </motion.button>
               
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-full text-lg font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 Get Quote
-              </motion.button>
+              </motion.button> */}
             </motion.div>
           </motion.div>
         </div>
@@ -665,7 +674,7 @@ function App() {
                   />
                 </motion.div>
                 <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                  AquaBrand
+                SipNSee
                 </span>
               </motion.div>
               <p className="text-gray-400 mb-6 leading-relaxed">
@@ -681,22 +690,22 @@ function App() {
                   whileHover={{ x: 5 }}
                 >
                   <Phone className="text-blue-400" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 7972711814</span>
                 </motion.div>
                 <motion.div 
                   className="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
                   whileHover={{ x: 5 }}
                 >
                   <Email className="text-blue-400" />
-                  <span>hello@aquabrand.com</span>
+                  <span>sipnsee.qualiford@gmail.com</span>
                 </motion.div>
-                <motion.div 
+                {/* <motion.div 
                   className="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
                   whileHover={{ x: 5 }}
                 >
                   <LocationOn className="text-blue-400" />
                   <span>123 Brand Street, Marketing City</span>
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
             <div>
@@ -727,7 +736,7 @@ function App() {
             viewport={{ once: true }}
           >
             <p className="text-gray-500">
-              © 2024 AquaBrand. All rights reserved. | Made with ❤️ for your brand
+              © 2025 SipNSee. All rights reserved.
             </p>
           </motion.div>
         </div>
